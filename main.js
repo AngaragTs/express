@@ -1,25 +1,38 @@
 import express from "express";
 import fs from "fs";
 import { text } from "stream/consumers";
+import { router } from "./src/routes/users.js";
+import mongoose from "mongoose";
+import { foods } from "./src/routes/foods.js";
+
 const app = express();
 const PORT = 8000;
+
 app.use(express.json());
 
-let users = fs.readFile(text.json);
-app.get("/user", (req, res) => {
-  res.status(200).json(users);
-});
-
-app.post("/user", (req, res) => {
-  const newUser = req.body;
-  users.push(newUser);
-
-  res.send(`5th User Added`);
-});
+app.use(`/user`, router);
+app.use(`/food`, foods);
+mongoose
+  .connect(
+    `mongodb+srv://angarag:1Angarag123@fooddelivery.ciiazid.mongodb.net/`
+  )
+  .then(() => console.log(`Connected`));
 
 app.listen(PORT, () => {
   console.log(`server is running on http://localhost:${PORT}/user`);
 });
+
+// let users = fs.readFile(text.json);
+// app.get("/user", (req, res) => {
+//   res.status(200).json(users);
+// });
+
+// app.post("/user", (req, res) => {
+//   const newUser = req.body;
+//   users.push(newUser);
+
+//   res.send(`5th User Added`);
+// });
 
 // app.put(`/user`, (req, res) => {
 //   const updatedUser = req.body;
