@@ -9,6 +9,13 @@ const UserShema = new Schema({
   id: ObjectId,
   name: { type: String, require: true },
   email: String,
+  password: String,
   phone: Number,
+  address: String,
+  orderedFoods: ObjectId,
+  ttl: Date,
+  isVerified: Boolean,
+  createdAt: Date,
+  updatedAt: Date,
 });
 export const userModel = mongoose.model("user", UserShema);

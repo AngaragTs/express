@@ -4,6 +4,8 @@ import { text } from "stream/consumers";
 import { router } from "./src/routes/users.js";
 import mongoose from "mongoose";
 import { foods } from "./src/routes/foods.js";
+import { foodcategory } from "./src/routes/foodcategory.js";
+import { FoodOrder } from "./src/routes/foodorder.js";
 
 const app = express();
 const PORT = 8000;
@@ -12,6 +14,9 @@ app.use(express.json());
 
 app.use(`/user`, router);
 app.use(`/food`, foods);
+app.use(`/category`, foodcategory);
+app.use(`/FoodOrder`, FoodOrder);
+
 mongoose
   .connect(
     `mongodb+srv://angarag:1Angarag123@fooddelivery.ciiazid.mongodb.net/`
