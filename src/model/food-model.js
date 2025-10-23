@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { foodCategoryModel } from "./foodcategory-model.js";
 const model = [];
 
 const Schema = mongoose.Schema;
@@ -10,7 +11,7 @@ const foodShema = new Schema({
   price: Number,
   image: String,
   ingredients: String,
-  category: String,
+  category: { type: ObjectId, ref: "foodcategory" },
   createdAt: Date,
   updatedAt: Date,
 });
