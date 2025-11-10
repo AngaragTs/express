@@ -7,7 +7,7 @@ const ObjectId = Schema.ObjectId;
 
 const foodShema = new Schema({
   id: ObjectId,
-  foodname: { type: String, require: true },
+  foodname: String,
   price: Number,
   image: String,
   ingredients: String,

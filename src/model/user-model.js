@@ -11,6 +11,7 @@ const UserShema = new Schema({
   email: String,
   password: String,
   phone: Number,
+  role: { type: String, enum: ["Custumor", "Admin"] },
   address: String,
   orderedFoods: ObjectId,
   ttl: Date,

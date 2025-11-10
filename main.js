@@ -1,17 +1,15 @@
 import express from "express";
-import fs from "fs";
-import { text } from "stream/consumers";
 import { router } from "./src/routes/users.js";
 import mongoose from "mongoose";
 import { foods } from "./src/routes/foods.js";
 import { foodcategory } from "./src/routes/foodcategory.js";
 import { FoodOrder } from "./src/routes/foodorder.js";
-
+import cors from "cors";
 const app = express();
 const PORT = 8000;
 
 app.use(express.json());
-
+app.use(cors());
 app.use(`/user`, router);
 app.use(`/food`, foods);
 app.use(`/category`, foodcategory);

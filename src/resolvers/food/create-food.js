@@ -1,8 +1,8 @@
 import { foodModel } from "../../model/food-model.js";
 
 export const createFood = async (req, res) => {
-  const dbUser = await foodModel.create(req.body.id, {
-    foodname: req.body.name,
+  const dbUser = await foodModel.create({
+    foodname: req.body.foodname,
     price: req.body.price,
     image: req.body.image,
     ingredients: req.body.ingredients,

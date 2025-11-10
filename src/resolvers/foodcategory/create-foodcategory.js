@@ -1,7 +1,7 @@
 import { foodCategoryModel } from "../../model/foodcategory-model.js";
 
 export const CreateFoodCategory = async (req, res) => {
-  const dbUser = await foodCategoryModel.create(req.body.id, {
+  const dbUser = await foodCategoryModel.create({
     categoryName: req.body.categoryName,
     createdAt: req.body.createdAt,
     updatedAt: req.body.updatedAt,
